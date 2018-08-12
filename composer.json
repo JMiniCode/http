@@ -10,7 +10,7 @@
         }
     ],
     "autoload": {
-        "psr-4": {"HTTP\\": "src"}
+        "psr-4": {"JMCode\\Http\\": "src"}
     },
     "require": {
         "php": ">=7.1"

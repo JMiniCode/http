@@ -2,6 +2,6 @@
 
 namespace JMCode\Http;
 
-class Request {
+class Response {
 
 }

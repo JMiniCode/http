@@ -41,7 +41,10 @@ class Request extends Message implements RequestInterface
      */
     public function withRequestTarget($requestTarget)
     {
+        $clone = clone $this;
+        $clone->requestTarget = $requestTarget;
 
+        return $clone;
     }
 
     /**

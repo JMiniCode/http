@@ -4,6 +4,7 @@ namespace JMCode\Http;
 
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\UriInterface;
+use JMCode\Http\Filter\Request as RequestFilter;
 
 /**
  * Class Request
@@ -57,7 +58,16 @@ class Request extends Message implements RequestInterface
      */
     public function withMethod($method)
     {
+        RequestFilter::method($method);
 
+        if ($this->method === $method) {
+            return $this;
+        }
+
+        $clone = clone $this;
+        $clone->method = $method;
+
+        return $clone;
     }
 
     /**
@@ -75,6 +85,9 @@ class Request extends Message implements RequestInterface
      */
     public function withUri(UriInterface $uri, $preserveHost = false)
     {
+        $clone = clone $this;
+        $clone->uri = $uri;
 
+        return $clone;
     }
 }
